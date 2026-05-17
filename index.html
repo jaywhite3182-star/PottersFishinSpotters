@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PottersFishinSpotters</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top-header">
+    <div class="header-copy">
+      <p id="greeting-text" class="greeting">Good morning,</p>
+      <p id="profile-name" class="profile-name">Your Name</p>
+    </div>
+    <div class="profile-avatar">👤</div>
+  </header>
+
+  <!-- ================= SEARCH BAR ================= -->
+  <div class="search-container">
+    <input
+      type="text"
+      id="globalSearchInput"
+      placeholder="Search city, lake, river, fishing spot...."
+      class="search-input"
+    >
+
+    <button type="button" class="search-btn" onclick="searchGlobalLocation()">🔍</button>
+  </div>
+
+  <!-- ================= FISHING CONDITIONS ================= -->
+   <div class="fishing-conditions">
+        <h3 class="conditions-title">Fishing Conditions</h3>
+        <div class="conditions-grid">
+          <div class="condition-column">
+            <div class="condition-item">
+              <label>Temperature</label>
+              <span id="weather-value">--</span>
+            </div>
+            <div class="condition-item">
+              <label>Wind</label>
+              <span id="wind-value">--</span>
+            </div>
+            <div class="condition-item">
+              <label>Water</label>
+              <span id="water-value">--</span>
+            </div>
+          </div>
+          <div class="condition-column">
+            <div class="condition-item">
+              <label>Tide</label>
+              <span id="tide-value">--</span>
+            </div>
+            <div class="condition-item">
+            <label>Sea State</label>
+            <span id="sea-state-value">--</span>
+          </div>
+          <div class="condition-item">
+          <label>Time</label>
+          <span id="time-value">--</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FISHING INTEL ================= -->
+   <div class="fishing-intel">
+    <h3 class="intel-title">Fishing Intel</h3>
+    <div class="intel-grid">
+      <div class="intel-column">
+        <div class="intel-item">
+          <label>Activity</label>
+          <span id="activity-value">--</span>
+        </div>
+        <div class="intel-item">
+          <label>Best Lure</label>
+          <span id="lure-value">--</span>
+        </div>
+      </div>
+      <div class="intel-column">
+        <div class="intel-item">
+          <label>Depth</label>
+          <span id="depth-value">--</span>
+        </div>
+        <div class="intel-item">
+          <label>Advice</label>
+          <span id="advice-value">--</span>
+        </div>
+      </div>
+    </div>
+    </div>
+
+     <!-- ====== MAXIMIZE AND MINIMIZE BUTTON ====== -->
+      <div class="map-section">
+
+        <div id="map"></div>
+
+        <button
+         type="button"
+         id="mapToggleBtn"
+         class="map-toggle-btn"
+         onclick="toggleMapSize()"
+        >
+         ⛶
+        </button>
+<!-- ===== MAP LOCATION BUTTON ==== -->
+        <button
+          type="button"
+          class="map-location-btn"
+          id="mapLocationBtn"
+          title="Track my location"
+        >
+        🧍‍♀️
+        </button>      
+      </div>
+
+    <!-- ================= BOTTOM NAV ================= -->
+  <div class="bottom-nav">
+    <button><span class="emoji">📍</span><br><span class="text">Spots</span></button>
+    <button><span class="emoji">🎣</span><br><span class="text">Catches</span></button>
+
+    <!-- CENTER BUTTON -->
+    <button class="center-btn"><span class="emoji">🗺️</span></button>
+
+    <button><span class="emoji">🔥</span><br><span class="text">Activity</span></button>
+    <button><span class="emoji">🪱</span><br><span class="text">Lures</span></button>
+  </div>
+
+ <!-- ======= Leaflet JS ======== -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+ <!-- App JS -->
+ <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,462 @@
+/* ===== GLOBAL RESET ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: rgba(255, 255, 255, 0.9);
+  padding-top: 75px;
+  padding-bottom: 120px;
+}
+.top-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: rgba(0, 0, 0, 0.75);
+  border-bottom: 1px solid rgba(0, 255, 0, 0.45);
+  backdrop-filter: blur(8px);
+  box-sizing: border-box;
+}
+
+.header-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.greeting {
+  margin: 0;
+  font-size: 18px;
+  color: #0f0;
+}
+
+.profile-name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.profile-avatar {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #0f0;
+  border: 1px solid rgba(0, 255, 0, 0.9);
+  border-radius: 50%;
+  background: rgba(0, 255, 0, 0.08);
+  box-shadow: 0 0 14px rgba(0, 255, 0, 0.28);
+}
+
+/* ===== SEARCH BAR ===== */
+.search-container {
+  margin: 10px 20px 10px;
+  position: relative;
+  width: calc(100% - 40px);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  box-sizing: border-box;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 14px;
+  background: rgba(15, 255, 0, 0.08);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-input:focus {
+  background: rgba(15, 255, 0, 0.12);
+  border-color: #0f0;
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+.search-btn {
+  padding: 10px 14px;
+  background: rgba(0, 255, 0, 0.15);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  border-radius: 6px;
+  color: #0f0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+  background: rgba(0, 255, 0, 0.25);
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+/* ===== FISHING CONDITIONS ===== */
+.fishing-conditions {
+  margin: 10px 20px 10px;
+  position: relative;
+  width: calc(100% - 40px);
+  z-index: 4;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 12px rgba(0, 255, 0, 0.2);
+}
+
+.conditions-title {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.conditions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.condition-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.condition-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.1);
+}
+
+.condition-item label {
+  font-size: 15px;
+  color: rgba(0, 255, 0, 0.7);
+  font-weight: 500;
+}
+
+.condition-item span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 500;
+}
+
+/* ===== FISHING INTEL ===== */
+.fishing-intel {
+  margin: 10px 20px 10px;
+  position: relative;
+  width: calc(100% - 40px);
+  z-index: 4;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 12px rgba(0, 255, 0, 0.2);
+}
+
+/* ===== INTEL TITLE ===== */
+.intel-title {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* ==== INTEL GRID ==== */
+.intel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ==== INTEL COLUMNS ==== */
+.intel-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ===== INTEL ITEMS ===== */
+.intel-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.1);
+}
+
+.intel-item label {
+  font-size: 15px;
+  color: rgba(0, 255, 0, 0.7);
+  font-weight: 500;
+}
+
+.intel-item span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 500;
+}
+
+/* ======= MAP SECTION WRAPPER ====== */
+.map-section {
+  position: relative;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+/* ===== MAP ===== */
+#map {
+  width: calc(100% - 40px);
+  height: 500px;
+  margin: 10px 20px 10px;
+  background: rgba(0, 255, 0, 0.08);
+  border: 1px solid rgba(0, 255, 0, 0.2);
+  border-radius: 12px;
+  z-index: 1;
+}
+
+/* ====== EXPANDED MAP MODE ====== */
+.map-section.map-expanded {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 75px;
+  z-index: 999;
+  background: #000;
+}
+
+/* ===== EXPANDED MAP SIZE ====== */
+.map-section.map-expanded #map {
+  width: calc(100% - 40px);
+  height: calc(100% - 20px);
+  margin: 10px 20px;
+}
+
+/* ===== MAP TOGGLE BUTTON ==== */
+.map-toggle-btn {
+  position: absolute;
+  bottom: 100px;
+  right: 25px;
+  z-index: 1002;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 12px;
+  background: #111;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid rgba(0, 255, 0, 0.4);
+}
+
+/* ===== MAP SEARCH BOX ======= */
+.map-search-box {
+  position: fixed;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 420px;
+  display: flex;
+  z-index: 1000;
+}
+
+.map-search-box input {
+flex: 1;
+padding: 10px;
+border-radius: 10px;
+border: 2px solid #1f7a3a;
+background: #111;
+color: white;
+}
+
+.map-search-box button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #1f7a3a;
+  color: white;
+  font-weight: bold;
+}
+
+/* ======= LEAFLET ZOOM BUTTONS _ GREEN/BLACK THEME ===== */
+.leaflet-control-zoom a {
+  background: #111 !important;
+  color: #39ff14 !important;
+  border-bottom: 1px solid rgba(57, 255, 20, 0.35) !important;
+  font-weight: bold !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #1f7a3a !important;
+  color: white !important;
+}
+
+/* removes ugly white border around zoom box */
+.leaflet-control-zoom {
+  border: 1px solid rgba(57, 255, 20, 0.4) !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+
+/* ======== MAP MAXIMIZE BUTTON - GREEN/BLACK THEME ===== */
+.map-toggle-btn {
+  background: #111;
+  color: #39ff14; 
+  border: 1px solid rgba(57, 255, 20, 0.4);
+  box-shadow: 0 0 8px rgba(57, 255, 20, 0.25);
+}
+
+.map-toggle-btn:hover {
+  background: #1f7a3a;
+  color: white;
+}
+
+/* ====== CURRENT LOCATION BUTTON ===== */
+.map-location-btn {
+  position: absolute;
+  bottom: 28px;      /* sits below maximize */
+  left: 28px;
+  z-index: 1002;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #111;
+  color: #39ff14;
+  font-size: 20px;
+  cursor: pointer;
+  border: 1px solid rgba(57, 255, 20, 0.4);
+  box-shadow: 0 0 8px rgba(57, 255, 20, 0.25);
+}
+
+.map-location-btn:hover {
+  background: #1f7a3a;
+  color: white;
+}
+
+/* ==== ACTIVE LOCATION TRACKING BUTTON ==== */
+.map-location-btn.tracking-active {
+  background: #39ff14;
+  color: #000;
+  box-shadow: 0 0 14px rgba(57, 255, 20, 0.75);
+}
+
+/* ===== BOTTOM NAV ===== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 9999;
+  background-color: #000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(
+      to right,
+      rgba(0, 255, 0, 0.45) 46.5%,
+      transparent 44.5% 54.5%,
+      rgba(0, 255, 0, 0.45) 46.5%
+    )
+    1;
+}
+
+/* ===== NAV BUTTONS ===== */
+.bottom-nav button {
+  background: none;
+  border: none;
+  color: #0f0;
+  text-align: center;
+}
+
+.emoji {
+  font-size: 27px;
+  color: #b3ffb3;
+  text-shadow:
+    0 0 8px rgba(0, 255, 0, 0.7),
+    0 0 16px rgba(0, 255, 0, 0.3);
+}
+
+.text {
+  font-size: 15px;
+}
+
+/* ===== CENTER BUTTON ===== */
+.center-btn {
+  background-color: #000;
+  color: black;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  margin-top: -65px;
+  font-size: 30px;
+  border: 12px solid #0f0;
+  box-shadow:
+    0 0 15px rgba(0, 255, 0, 0.8),
+    0 0 30px rgba(0, 255, 0, 0.8),
+    0 0 45px rgba(0, 255, 0, 0.925);
+  position: relative;
+  z-index: 3;
+}
+
+.center-btn::before {
+  content:"";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  background: #000;
+  z-index: -1;
+}
+
+/* ===== PAGE CONTENT ===== */
+.page-content {
+  padding: 20px;
+  margin-top: 100px;
+}
+
+/* ===== PREVENT HORTIZONTAL SCROLL ===== */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ===== USER LOCATION ICON ====== */
+.user-location-icon {
+  font-size: 28px;
+  text-align: center;
+  line-height: 30px;
+  filter: drop-shadow(0 0 6px rgba(57, 255, 20, 0.8));
+}
