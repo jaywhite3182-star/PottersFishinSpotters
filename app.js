@@ -31,7 +31,7 @@ function savePersonIconPreference(iconType) {
   updateLocationButtonIcon();
 
   if (userMarker) {
-    userMarker.setIcon(createUserLocationBtn());
+    userMarker.setIcon(createUserLocationIcon());
   }
 }
 
@@ -257,56 +257,18 @@ function addNewFishingSpot(name, lat, lng, description, fishTypes) {
 
 // ===== TOGGLE LIVE LOCATION TRACKING =====
 function toggleLocationTracking() {
-  alert("Location button clicked");
-
   if (isTrackingLocation) {
     stopLocationTracking();
-    } else {
-      startLocationTracking();
-    }
+  } else {
+    startLocationTracking();
+  }
 }
 
-// ======= START LIVE LOCATION TRACKING =====
+// ===== START LIVE LOCATION TRACKING =====
 function startLocationTracking() {
-  alert("Starting location tracking");
-
   if (!navigator.geolocation) {
     alert("Location is not supported on this device.");
     return;
-  }
-  
-  navigator.geolocation.getCurrentPosition(
-    function (position) {
-      alert ("Location found!");
-
-      const userLat = position.coords.latitude;
-      const userLng = position.coords.longitude;
-
-      const userCoords = [userLat, userLng];
-
-      if (userMarker) {
-        userMarker.setLatLng(userCoords);
-        userMarker.setIcon(createUserLocationIcon());
-      } else {
-        userMarker = L.marker(userCoords, {
-          icon: createUserLocationIcon()
-        }).addTo(map);
-
-        userMarker.bindPopup("You are here").openPopup();
-      }
-
-      map.setView(userCoords, 15);
-      },
-      function (error) {
-        console.error("Locaiton error:", error);
-        alert("Location failed: " + error.message);
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 15000,
-        maximumAge: 0
-      }
-    );
   }
 
   isTrackingLocation = true;
@@ -321,7 +283,6 @@ function startLocationTracking() {
     function (position) {
       const userLat = position.coords.latitude;
       const userLng = position.coords.longitude;
-
       const userCoords = [userLat, userLng];
 
       if (userMarker) {
@@ -332,22 +293,39 @@ function startLocationTracking() {
           icon: createUserLocationIcon()
         }).addTo(map);
 
-        userMarker.bindPopup("You are here");
+        userMarker.bindPopup("You are here").openPopup();
       }
 
       map.setView(userCoords, 15);
-      },
-      function (error) {
-        console.error("Location tracking error:", error);
-        alert("Could not track your location.");
-        stopLocationTracking();
-      },
-      {
-        enableHighAccuracy: true,
-        maximumAge: 0,
-        timeout: 10000
-      }
+    },
+    function (error) {
+      console.error("Location tracking error:", error);
+      alert("Location failed: " + error.message);
+      stopLocationTracking();
+    },
+    {
+      enableHighAccuracy: true,
+      maximumAge: 0,
+      timeout: 15000
+    }
   );
+}
+
+// ===== STOP LIVE LOCATION TRACKING =====
+function stopLocationTracking() {
+  if (locationWatchId !== null) {
+    navigator.geolocation.clearWatch(locationWatchId);
+    locationWatchId = null;
+  }
+
+  isTrackingLocation = false;
+
+  const locationBtn = document.getElementById("mapLocationBtn");
+  if (locationBtn) {
+    locationBtn.classList.remove("tracking-active");
+    updateLocationButtonIcon();
+  }
+}
 
 // ======= STOP LIVE LOCATION TRACKING =====
 function stopLocationTracking() {
