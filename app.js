@@ -62,6 +62,7 @@ let markers = [];
 let userMarker = null;
 let locationWatchId = null;
 let isTrackingLocation = false;
+let savedUserPins = JSON.parse(localStorage.getItem("savedUserPins")) || [];
 
 // ===== LOAD MAP AFTER PAGE OPENS =====
 document.addEventListener("DOMContentLoaded", initializeMap);
@@ -81,6 +82,7 @@ function initializeMap() {
   }).addTo(map);
 
   addFishingSpots();
+  loadSavedUserPins();
 
   console.log("Map loaded");
 
@@ -167,18 +169,32 @@ function onMapClick(e) {
 }
 
 // ====== CREATE USER PIN ===== 
-function createUserPin(lat, lng) {
+function createUserPin(lat, lng, savePin = true) {
   const marker = L.marker([lat, lng]).addTo(map);
 
   marker.bindPopup(`
     <div style="font-family: Arial;">
-    <strong>Custom Spot</strong><br>
-    Lat: ${lat.toFixed(4)}<br>
-    Lng: ${lng.toFixed(4)}
-    </div> 
-   `);
+     <strong>Custom Spot</strong><br>
+     Lat: ${lat.toFixed(4)}<br>
+     Lng: ${lng.toFixed(4)}
+    </div>
+  `);
+  markers.push(marker);
 
-   markers.push(marker);
+  if (savePin) {
+    savedUserPins.push({
+      lat: lat,
+      lng: lng
+    });
+    localStorage.setItem("savedUserPins", JSON.stringify(savedUserPins));
+  }
+}
+
+// ====== LOAD SAVED USER PINS =====
+function loadSavedUserPins() {
+  savedUserPins.forEach(function (pin) {
+    createUserPin(pin.lat, pin.lng, false);
+  });
 }
 
 // ===== SEARCH MAP LOCATION =====

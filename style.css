@@ -281,6 +281,11 @@ body {
   border: 1px solid rgba(0, 255, 0, 0.4);
 }
 
+.map-toggle-btn:hover {
+  background: #1f7a3a;
+  color: white;
+}
+
 /* ===== MAP SEARCH BOX ======= */
 .map-search-box {
   position: fixed;
@@ -330,20 +335,6 @@ color: white;
   border-radius: 10px !important;
   overflow: hidden;
 }
-
-/* ======== MAP MAXIMIZE BUTTON - GREEN/BLACK THEME ===== */
-.map-toggle-btn {
-  background: #111;
-  color: #39ff14; 
-  border: 1px solid rgba(57, 255, 20, 0.4);
-  box-shadow: 0 0 8px rgba(57, 255, 20, 0.25);
-}
-
-.map-toggle-btn:hover {
-  background: #1f7a3a;
-  color: white;
-}
-
 /* ====== CURRENT LOCATION BUTTON ===== */
 .map-location-btn {
   position: absolute;
@@ -447,7 +438,7 @@ color: white;
   margin-top: 100px;
 }
 
-/* ===== PREVENT HORTIZONTAL SCROLL ===== */
+/* ===== PREVENT HORIZONTAL SCROLL ===== */
 html, body {
   overflow-x: hidden;
   width: 100%;
